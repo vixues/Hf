@@ -1,4 +1,5 @@
 # -*- coding: UTF-8 -*-
+from tkinter import *
 from gui import Mainwindow
 
 
