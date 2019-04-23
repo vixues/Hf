@@ -1,6 +1,6 @@
 # -*- coding: UTF-8 -*-
 import pandas as pd
-from machine import Napture
+from Napture import Napture
 
 
 class Hf():
