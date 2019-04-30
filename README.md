@@ -6,7 +6,7 @@ Python Scripts for ICP-MS data processing
 
 Model：Neptune Plus™ High Resolution Multicollector ICP-MS
 
-More model are being developed. For more information, please contact [yqc@pku.edu.cn](yqc@pku.edu.cn).
+More models are being developed. For more information, please contact [yqc@pku.edu.cn](yqc@pku.edu.cn).
 
 File type：*.exp
 

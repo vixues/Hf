@@ -1,6 +1,7 @@
 # -*- coding: UTF-8 -*-
 import pandas as pd
 from Napture import Napture
+import math
 
 
 class Hf():
@@ -9,7 +10,8 @@ class Hf():
         self.filename = file
         self.hf180 = hf180
         machine_type = Napture()
-        machine_type.open(slef.filenname, encoding='ascii')
+        machine_type.set_hf(hf180)
+        machine_type.open(self.filename, encoding='ascii')
         self.df, self.datanumber= machine_type.getdata()
     
     def cal(self):

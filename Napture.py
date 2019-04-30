@@ -7,10 +7,14 @@ class Napture(object):
     def __init__(self):
         self.filename = None
         self.file = None
+        self.hf180 = 0
     
-    def open(self, filenname, encoding=None):
+    def open(self, filename, encoding=None):
         self.filename = filename
         self.file = open(self.filename, 'r', buffering= -1, encoding = encoding)
+
+    def set_hf(self, value):
+        self.hf180 = value
 
     def getdata(self):
         tmp = open(self.filename, 'r', buffering= -1, encoding = 'ascii')

@@ -28,6 +28,7 @@ class Mainwindow():
         self.filename = StringVar()
         self.filename.set('Open Floder')
         self.hf180 = StringVar()
+        self.hf180.set('0')
         self.pathlabel = Label(pan_frame, text='Data Location：', background='#2F2F2F', foreground='White')
         self.pathlabel.pack(side=TOP, padx=5, pady=3, fill=X)
         Button(pan_frame,text = 'Choose Data Floder',
@@ -35,12 +36,12 @@ class Mainwindow():
         Label(pan_frame,text = 'Data to delete：Hf180 <', background = '#2F2F2F',
         foreground='White').pack(side=TOP, padx=5, pady=3, fill=X)
         Entry(pan_frame,textvariable = self.hf180).pack(side=TOP, fill=X, padx=5, pady=3)
-        Button(pan_frame, text='Calculation',
+        Button(pan_frame, text='Run',
         command=self.calculation, background='#B13254', foreground='White').pack(side=TOP,
         padx = 5,pady = 3,fill = X)
         self.text = Text(pan_frame,width=30, height=5, bd=1)
         self.text.pack(side=TOP, padx=5, pady=3, fill=X)
-        Button(pan_frame, text='Save Date', command=self.save).pack(side=TOP, padx=5, pady=3, fill=X)
+        Button(pan_frame, text='Save Data', command=self.save).pack(side=TOP, padx=5, pady=3, fill=X)
         Button(pan_frame, text='Exit', command=self.exit).pack(side=BOTTOM, padx=5,pady=3, fill=X)
 
         bary = Scrollbar(res_frame)
@@ -101,5 +102,5 @@ class Mainwindow():
         self.master.destroy()
 
     def scan_file(self, directory, postfix = None):
-        file_list = [file for file in os.listdir(directory) if file.endswith(posfix)]
-        return files_list
+        file_list = [file for file in os.listdir(directory) if file.endswith(postfix)]
+        return file_list
