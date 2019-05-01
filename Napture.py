@@ -7,14 +7,10 @@ class Napture(object):
     def __init__(self):
         self.filename = None
         self.file = None
-        self.hf180 = 0
     
     def open(self, filename, encoding=None):
         self.filename = filename
         self.file = open(self.filename, 'r', buffering= -1, encoding = encoding)
-
-    def set_hf(self, value):
-        self.hf180 = value
 
     def getdata(self):
         tmp = open(self.filename, 'r', buffering= -1, encoding = 'ascii')
@@ -33,9 +29,6 @@ class Napture(object):
                 data = line.split()[:10]
                 if '***' in data:
                     break
-                if float(data[9]) > float(self.hf180): # Only value greater than the presetting Hf180 will be imported.
-                    dataframe = dataframe.append(pd.DataFrame(data = [data], columns = index),ignore_index = True)
-                    num += 1 # num: cycle get
+                dataframe = dataframe.append(pd.DataFrame(data = [data], columns = index),ignore_index = True)
             i += 1
-        #print(dataframe)
-        return dataframe.iloc[:,2:].astype(float), num
+        return dataframe.iloc[:,2:].astype(float)

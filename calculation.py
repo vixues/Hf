@@ -9,10 +9,9 @@ class Hf():
     def __init__(self, file, hf180):
         self.filename = file
         machine_type = Napture()
-        machine_type.set_hf(hf180)
         machine_type.open(self.filename, encoding='ascii')
         self.df = machine_type.getdata()
-        self.df = self.df[self.df.iloc[:, -1] > hf180]]
+        self.df = self.df[self.df.iloc[:, -1] > hf180]
         self.datanumber = len(self.df)
     
     def cal(self):
