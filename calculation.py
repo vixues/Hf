@@ -8,11 +8,12 @@ class Hf():
 
     def __init__(self, file, hf180):
         self.filename = file
-        self.hf180 = hf180
         machine_type = Napture()
         machine_type.set_hf(hf180)
         machine_type.open(self.filename, encoding='ascii')
-        self.df, self.datanumber= machine_type.getdata()
+        self.df = machine_type.getdata()
+        self.df = self.df[self.df.iloc[:, -1] > hf180]]
+        self.datanumber = len(self.df)
     
     def cal(self):
         self.df['beta2/3'] = (self.df['172Yb']/self.df['173Yb']).apply(lambda x:math.log(1.35274/x))/math.log(171.936378/172.938208)
