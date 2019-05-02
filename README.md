@@ -6,6 +6,7 @@ Python Scripts for ICP-MS Hf data processing,
 all code is released under an [MIT open-source license](LICENSE).
 
 __CONTENTS:__
+
 [data](data):Data for testing.
 
 [reference](reference):Spreedsheet doing the same thing.
@@ -38,6 +39,6 @@ __CONTACT:__
 
 This software is still under development to support more models and file types. For more information, please contact [yqc@pku.edu.cn](yqc@pku.edu.cn).
 
-__Note:__ In the latest version of this software, the Sr and the Hf programs are combined in the __Isotope__ software, for more infomation, please visit [Isotop]().
+__Note:__ In the latest version of this software, the Sr and the Hf programs are combined in the __Isotope__ software, for more infomation, please visit [Isotope]().
 
 Enjoy!
