@@ -8,6 +8,7 @@ class Hf():
 
     def __init__(self, file, hf180):
         self.filename = file
+        # Read .exp data into Pandas DataFrame.
         machine_type = Napture()
         machine_type.open(self.filename, encoding='ascii')
         self.df = machine_type.getdata()
@@ -23,6 +24,7 @@ class Hf():
         self.df['176Yb/177Hf'] = self.df['176Yb']/self.df['177Hf'] * self.df['beta7/9'].apply(lambda x:math.pow(175.942564/176.943217,x))
         self.df['176Lu/177Hf'] = self.df['176Lu']/self.df['177Hf'] * self.df['beta7/9'].apply(lambda x:math.pow(175.946279/176.943217,x))
         self.df['176Hf*/177Hf'] = self.df['176Hf*']/self.df['177Hf'] * math.pow(175.941406/176.943217,self.df['beta7/9'].mean())
+        # Add some data statistics
         mean = self.df.mean()
         sd = self.df.std()
         rsd = sd/mean
@@ -38,6 +40,7 @@ class Hf():
         self.df = self.df.append(pd.DataFrame(data = rse).rename(columns = {0:'2RSE'}).T)
         return self.df 
     
+    # Return the final report, no calculations here.
     def report(self,filename):
         sample = str(filename)
         beta23 = self.df.loc['Mean','beta2/3']
